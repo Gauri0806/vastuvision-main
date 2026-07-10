@@ -1,0 +1,349 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Hanken+Grotesk:wght@600;700;900&family=Geist:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =============================================
+   VastuVision Design System — Global Styles
+   ============================================= */
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    background-color: #0b1326;
+    color: #dae2fd;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    -webkit-font-smoothing: antialiased;
+  }
+  * {
+    box-sizing: border-box;
+  }
+  ::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: rgba(195, 192, 255, 0.2);
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: rgba(195, 192, 255, 0.4);
+  }
+}
+
+@layer components {
+
+  /* === Glass Panels === */
+  .glass-panel {
+    background: rgba(11, 19, 38, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .glass-card {
+    background: rgba(23, 31, 51, 0.6);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .glass-dark {
+    background: rgba(6, 14, 32, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  /* === Glow Effects === */
+  .primary-glow {
+    box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+  }
+  .primary-glow:hover {
+    box-shadow: 0 0 30px rgba(79, 70, 229, 0.5);
+  }
+  .secondary-glow {
+    box-shadow: 0 0 15px rgba(78, 222, 163, 0.2);
+  }
+  .secondary-glow:hover {
+    box-shadow: 0 0 25px rgba(78, 222, 163, 0.4);
+  }
+  .active-glow {
+    box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
+  }
+
+  /* === Vastu Gradient Border === */
+  .vastu-gradient-border {
+    background: linear-gradient(to right, #4f46e5, #4edea3);
+    padding: 2px;
+    border-radius: 0.75rem;
+  }
+
+  /* === Scan Line === */
+  .scan-line {
+    height: 2px;
+    width: 100%;
+    background: linear-gradient(to right, transparent, #4edea3, transparent);
+    box-shadow: 0 0 15px #4edea3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: scan 3s linear infinite;
+  }
+
+  /* === Grid Pattern === */
+  .grid-pattern {
+    background-image: radial-gradient(rgba(195, 192, 255, 0.08) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+
+  /* === Atmospheric Orbs === */
+  .atmo-orb-primary {
+    position: fixed;
+    top: -200px;
+    right: -200px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(79, 70, 229, 0.12) 0%, transparent 70%);
+    border-radius: 9999px;
+    pointer-events: none;
+    z-index: 0;
+  }
+  .atmo-orb-secondary {
+    position: fixed;
+    bottom: -200px;
+    left: 0;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(78, 222, 163, 0.08) 0%, transparent 70%);
+    border-radius: 9999px;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* === Material Symbols === */
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    font-family: 'Material Symbols Outlined';
+    font-size: 24px;
+    line-height: 1;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    user-select: none;
+  }
+
+  /* === Nav Items === */
+  .nav-active {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(79, 70, 229, 0.15);
+    color: #4edea3;
+    font-weight: 700;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    box-shadow: 0 0 15px rgba(78, 222, 163, 0.2);
+  }
+
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #c7c4d8;
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.3s;
+  }
+  .nav-item:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #dae2fd;
+    transform: translateX(4px);
+  }
+
+  /* === Inputs === */
+  .input-glass {
+    width: 100%;
+    background: rgba(23, 31, 51, 0.6);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    color: #dae2fd;
+    outline: none;
+    transition: all 0.2s;
+    font-size: 14px;
+  }
+  .input-glass::placeholder {
+    color: rgba(199, 196, 216, 0.5);
+  }
+  .input-glass:focus {
+    border-color: rgba(195, 192, 255, 0.5);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.15);
+  }
+
+  /* === Buttons === */
+  .btn-primary {
+    background: linear-gradient(to bottom, #5a50f0, #4f46e5);
+    color: white;
+    font-weight: 700;
+    border-radius: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.2s;
+    box-shadow: 0 4px 20px rgba(79, 70, 229, 0.3);
+    border: none;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn-primary:hover {
+    box-shadow: 0 4px 30px rgba(79, 70, 229, 0.5);
+    transform: translateY(-1px);
+  }
+  .btn-primary:active {
+    transform: scale(0.97);
+  }
+
+  .btn-secondary {
+    background: rgba(78, 222, 163, 0.05);
+    color: #4edea3;
+    font-weight: 700;
+    border: 1px solid rgba(78, 222, 163, 0.4);
+    border-radius: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.2s;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn-secondary:hover {
+    background: rgba(78, 222, 163, 0.12);
+    box-shadow: 0 0 20px rgba(78, 222, 163, 0.2);
+  }
+  .btn-secondary:active {
+    transform: scale(0.97);
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: #c7c4d8;
+    font-weight: 500;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    padding: 0.75rem 1.5rem;
+    transition: all 0.2s;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: #dae2fd;
+  }
+  .btn-ghost:active {
+    transform: scale(0.97);
+  }
+
+  /* === Status Badges === */
+  .badge-progress {
+    padding: 0.25rem 0.75rem;
+    background: rgba(11, 19, 38, 0.8);
+    backdrop-filter: blur(4px);
+    border-radius: 9999px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 11px;
+    color: #c3c0ff;
+    font-weight: 700;
+  }
+
+  .badge-analyzed {
+    padding: 0.25rem 0.75rem;
+    background: rgba(78, 222, 163, 0.15);
+    backdrop-filter: blur(4px);
+    border-radius: 9999px;
+    border: 1px solid rgba(78, 222, 163, 0.3);
+    font-size: 11px;
+    color: #4edea3;
+    font-weight: 700;
+  }
+
+  .badge-complete {
+    padding: 0.25rem 0.75rem;
+    background: rgba(195, 192, 255, 0.15);
+    backdrop-filter: blur(4px);
+    border-radius: 9999px;
+    border: 1px solid rgba(195, 192, 255, 0.3);
+    font-size: 11px;
+    color: #c3c0ff;
+    font-weight: 700;
+  }
+
+  /* === Page Transition === */
+  .page-enter {
+    animation: pageEnter 0.35s ease forwards;
+  }
+
+  /* === Custom scrollbar === */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 4px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: rgba(195, 192, 255, 0.2);
+    border-radius: 10px;
+  }
+}
+
+/* === Keyframe Animations (outside @layer to avoid PostCSS issues) === */
+@keyframes pageEnter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes scan {
+  0% {
+    top: 0%;
+  }
+  100% {
+    top: 100%;
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 10px rgba(78, 222, 163, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(78, 222, 163, 0.6);
+  }
+}
